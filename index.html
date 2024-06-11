@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <button id="startButton" class="start-button">Start Game</button>
+        <div id="board" class="board hidden">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div id="winningMessage" class="winning-message hidden">
+            <span id="winningMessageText"></span>
+            <button id="popupRestartButton" class="restart-button">Restart</button>
+        </div>
+        <button id="restartButton" class="restart-button hidden">Restart</button>
+
+        <!-- Background color and image change inputs -->
+        <div class="background-controls">
+            <input type="color" id="bgColorPicker" name="bgColorPicker" value="#333333">
+            <label for="bgColorPicker">Choose Background Color</label>
+            <input type="file" id="bgImagePicker" name="bgImagePicker" accept="image/*">
+            <label for="bgImagePicker">Upload Background Image</label>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(45deg, #333, #555);
+    color: white;
+    overflow: hidden;
+    transition: background 0.5s ease-in-out;
+}
+
+.container {
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #1a1a2e;
+    border: 1px solid #16213e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cell.x::before {
+    content: "X";
+    color: #ff0000;
+    font-size: 48px;
+}
+
+.cell.o::before {
+    content: "O";
+    color: #0000ff;
+    font-size: 48px;
+}
+
+.cell:hover {
+    transform: scale(1.1);
+}
+
+.winning-message {
+    display: none;
+    padding: 40px;
+    background-color: #1a1a2e;
+    border: 1px solid #16213e;
+    animation: popup 1s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.winning-message.show {
+    display: block;
+}
+
+@keyframes popup {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.start-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #1a1a2e;
+    border: 1px solid #16213e;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.restart-button, #popupRestartButton {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #ff0000;
+    border: 1px solid #ff4d4d;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.start-button:hover, .restart-button:hover, #popupRestartButton:hover {
+    background-color: #16213e;
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.background-controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.background-controls input[type="color"],
+.background-controls input[type="file"] {
+    margin: 10px 0;
+    cursor: pointer;
+}
